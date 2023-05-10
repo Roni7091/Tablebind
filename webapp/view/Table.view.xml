@@ -1,0 +1,80 @@
+<mvc:View controllerName="com.example.tablebind.controller.Table"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m"
+    xmlns:m="sap.m"
+    	xmlns:core="sap.ui.core">
+    <Table id="Tabid" 
+		inset="false"
+		mode="MultiSelect"
+		items="{
+			path: '/ProductCollection',
+			sorter: {
+				path: 'Name'
+			}
+		}">
+		<headerToolbar>
+			<OverflowToolbar>
+				<Title text="Products" level="H2"/>
+				<ToolbarSpacer></ToolbarSpacer>
+                <Button	text="Add Row" press="onAddbutton"  />
+                <Button	text="Delete Row" press="onDeleteTablerow"  />
+                <Button	text="Copy Row" press="onCopybutton" />
+				 <Button	text="F4 Help" press="onDialogbox" ariaHasPopup="Dialog" />
+               
+
+
+				<Button	text="export excel" press="onDataExport" />
+			</OverflowToolbar>
+		</headerToolbar>
+		<columns>
+			<Column
+				id="productCol"
+				width="12em">
+				<Text text="SL.NO" />
+			</Column>
+			<Column
+				id="supplierCol"
+				minScreenWidth="Tablet"
+				demandPopin="true">
+				<Text text="Name" />
+			</Column>
+			<Column
+				id="dimensionsCol"
+				minScreenWidth="Tablet"
+				demandPopin="true"
+				hAlign="End">
+				<Text text="Business" />
+			</Column>
+			<Column
+				id="weightCol"
+				minScreenWidth="Tablet"
+				demandPopin="true"
+				hAlign="Center">
+				<Text text="Status" />
+			</Column>
+			<Column
+				id="priceCol"
+				hAlign="End">
+				<Text text="Country" />
+			</Column>
+		</columns>
+		<items>
+			<ColumnListItem vAlign="Middle">
+				<cells>
+					<ObjectIdentifier
+						title="{Name}"
+						text="{ProductId}" />
+					<Text
+						text="{SupplierName}" />
+					<Text
+						text="{Business}" />
+						<Text
+						text="{Status}" />
+						<Text
+						text="{Country}" />
+					
+				</cells>
+			</ColumnListItem>
+		</items>
+	</Table>
+</mvc:View>
